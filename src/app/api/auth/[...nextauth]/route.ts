@@ -9,7 +9,7 @@ const handler = NextAuth({
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" }
             },
-            async authorize(credentials, req) {
+            async authorize(credentials) {
                 const res = await fetch('https://www.melivecode.com/api/login',{
                     method: "POST",
                     body: JSON.stringify(credentials),

@@ -73,6 +73,6 @@ function Page ()  {
             </Box>
         </Container>
     );
-};
+}
 
 export default Page;
