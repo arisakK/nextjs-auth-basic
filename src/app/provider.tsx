@@ -6,7 +6,7 @@ export const CustomProviders = ({
 }: {
     children: React.ReactNode
 } ) => {
-
-    return(<SessionProvider></SessionProvider> {})
-
+    return(<SessionProvider>
+        {children}
+    </SessionProvider> )
 }

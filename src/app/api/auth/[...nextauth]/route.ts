@@ -2,7 +2,6 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 const handler = NextAuth({
-    secret: process.env.AUTH_SECRET,
     providers: [
         CredentialsProvider( {
             name: 'Credentials',
@@ -20,14 +19,19 @@ const handler = NextAuth({
 
 
                 if (response.status === 'ok' ){
+                    response.user.image = response.user.avatar
+                    response.user.name = response.user.fname
                     return response.user
                 }
 
                 return null
 
             }
-        })
-    ]
+        }),
+    ],
+    pages: {
+        signIn: 'signin'
+    }
 })
 
-export { handler as GET, handler as POST }
+export {handler as GET , handler as POST }
